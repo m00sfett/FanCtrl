@@ -1,7 +1,23 @@
 # FanCtrl
-Control Raspberry Pi fan by temperature and optional log via mysql.
-Analysis via stats.py shows summary of fan usage (mysql required).
 
-This is my first project on GitHub. It is not intended for use!
+FanCtrl controls a GPIO-connected fan on a Raspberry Pi based on the CPU temperature.
+The project uses the `logging` module and obtains system metrics through `psutil`
+and standard operating system functions. A sample configuration file is provided as
+`fanctrl.conf` and can be placed elsewhere via the `--config` option (default:
+`/etc/fanctrl/fanctrl.conf`).
 
-If you want to use it, do it at your own risk! Feel free if you have some good suggestions.
+## Development
+
+The Python code resides in the `fanctrl` package under `src/`. Tests live in the
+`tests/` directory and can be executed with `pytest`:
+
+```bash
+PYTHONPATH=src pytest
+```
+
+## Debian Package
+
+A minimal Debian packaging setup is available for installation via `apt-get`. The
+required metadata is located in the `debian/` directory and can be processed with
+standard Debian tools.
+

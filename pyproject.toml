@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fanctrl"
+description = "Raspberry Pi fan controller"
+readme = "README.md"
+authors = [{name="FanCtrl Developers"}]
+requires-python = ">=3.8"
+dependencies = ["psutil", "RPi.GPIO"]
+dynamic = ["version"]
+
+[project.scripts]
+fanctrl = "fanctrl.controller:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.dynamic]
+version = {attr = "fanctrl.__version__"}

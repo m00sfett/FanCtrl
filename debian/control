@@ -1,0 +1,13 @@
+Source: fanctrl
+Section: utils
+Priority: optional
+Maintainer: FanCtrl Developers <maintainer@example.com>
+Build-Depends: debhelper-compat (= 13), python3-all, dh-python
+Standards-Version: 4.5.0
+Rules-Requires-Root: no
+
+Package: fanctrl
+Architecture: any
+Depends: ${python3:Depends}, ${misc:Depends}
+Description: Raspberry Pi fan control daemon
+ Controls a GPIO connected fan based on CPU temperature.
