@@ -6,7 +6,6 @@ import configparser
 import logging
 import os
 import time
-from typing import Tuple
 
 try:
     import RPi.GPIO as GPIO
@@ -59,7 +58,7 @@ def get_cpu_temp() -> float:
     raise RuntimeError("No CPU temperature sensor found")
 
 
-def get_system_load() -> Tuple[str, str, str]:
+def get_system_load() -> tuple[str, str, str]:
     """Return 1, 5 and 15 minute system loads formatted as strings."""
     load1, load5, load15 = os.getloadavg()
     return tuple(f"{v:.2f}" for v in (load1, load5, load15))
